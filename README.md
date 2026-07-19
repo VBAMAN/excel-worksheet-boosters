@@ -154,3 +154,8 @@ This keeps the worksheet easy to edit while dramatically reducing manual work.
 MAPBST is the first toolkit included in the **Excel Worksheet Boosters** project.
 
 Additional worksheet productivity tools may be added in the future.
+
+## License
+
+This project is licensed under the MIT License.
+See the LICENSE file for details.
