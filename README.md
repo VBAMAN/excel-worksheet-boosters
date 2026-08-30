@@ -112,40 +112,114 @@ A Palette worksheet is created containing:
 
 ---
 
+## SHTBST – Sheet Store Booster
+
+SHTBST is a simple worksheet data storage and restore tool.
+
+It temporarily stores the values of a specified worksheet range and restores them to the original location when needed.
+
+This can be useful when worksheet data needs to be modified temporarily, tested, or experimented with without losing the original values.
+
+The application determines the range to be stored, while SHTBST handles the Store and Restore operations.
+
+---
+
+## Store and Restore
+
+The basic workflow is:
+
+```text
+Worksheet Range
+      ↓
+    Store
+      ↓
+Modify / Test / Experiment
+      ↓
+   Restore
+      ↓
+Original Values
+```
+
+SHTBST stores the values of the entire specified range, including blank cells.
+
+This makes it possible to restore the complete state of the stored area rather than restoring only cells that contained values.
+
+---
+
+## Included Sample
+
+The repository includes:
+
+```text
+SHTBST/SHTBST_Sample.xlsm
+```
+
+The sample workbook provides a simple environment for testing the Store and Restore functions.
+
+---
+
+## Quick Start
+
+Open **SHTBST_Sample.xlsm** and enable VBA macros.
+
+Specify the Store ID in the sample worksheet and use the test routines to verify the Store and Restore operations.
+
+The sample uses a worksheet area defined by the application:
+
+```vb
+Public Const AREA_INFO As String = "E5:W20"
+```
+
+The range itself is determined by the application. SHTBST does not require a fixed worksheet area.
+
+---
+
 ## Project Structure
 
 ```text
-MAPBST
+Excel Worksheet Boosters
 │
-├── MAPBST_Sample.xlsm
-├── images
-│   └── blockfill-before-after.png
+├── MAPBST
+│   ├── MAPBST_Sample.xlsm
+│   ├── images
+│   │   └── blockfill-before-after.png
+│   │
+│   ├── MAPBST_00_Config.bas
+│   ├── MAPBST_10_RGBViewer.bas
+│   ├── MAPBST_40_BlockFill.bas
+│   ├── MAPBST_50_DominoPaint.bas
+│   ├── MAPBST_60_Palette.bas
+│   ├── MAPBST_70_MapRestore.bas
+│   ├── MAPBST_80_Reset.bas
+│   └── MAPBST_90_Expand.bas
 │
-├── MAPBST_00_Config.bas
-├── MAPBST_10_RGBViewer.bas
-├── MAPBST_40_BlockFill.bas
-├── MAPBST_50_DominoPaint.bas
-├── MAPBST_60_Palette.bas
-├── MAPBST_70_MapRestore.bas
-├── MAPBST_80_Reset.bas
-└── MAPBST_90_Expand.bas
+└── SHTBST
+    ├── SHTBST_Sample.xlsm
+    ├── SHTBST_00_Config.bas
+    ├── SHTBST_10_Store.bas
+    ├── SHTBST_20_Restore.bas
+    └── SHTBST_90_Test.bas
 ```
 
 ---
 
 ## Design Philosophy
 
-Traditional tile editors require users to manually place bitmap numbers.
+Traditional worksheet tools often require users to manually manage data and repeatedly perform the same operations.
 
-MAPBST follows a different approach.
+**Excel Worksheet Boosters** follows a different approach.
 
-The worksheet itself becomes the editor.
+The worksheet itself becomes part of the tool.
 
-Users create maps by painting worksheet cells, while MAPBST automatically generates and manages the bitmap numbers.
+Each Booster provides a small set of focused operations that can be combined with the worksheet-based applications users already create.
 
-This keeps the worksheet easy to edit while dramatically reducing manual work.
+MAPBST allows users to create maps by painting cells.
 
-> **Create maps by painting cells. MAPBST generates the bitmap numbers for you.**
+SHTBST allows users to temporarily store worksheet data and restore it when needed.
+
+The goal is not to replace Excel, but to make the worksheet itself more useful as a development and working environment.
+
+> **Turn the Excel worksheet into a useful tool.**
 
 ---
 
@@ -153,7 +227,9 @@ This keeps the worksheet easy to edit while dramatically reducing manual work.
 
 MAPBST is the first toolkit included in the **Excel Worksheet Boosters** project.
 
-Additional worksheet productivity tools may be added in the future.
+SHTBST is the second toolkit.
+
+Additional worksheet tools and utilities may be added in the future.
 
 ## License
 
